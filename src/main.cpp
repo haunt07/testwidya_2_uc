@@ -2,12 +2,12 @@
 #include <trans.h>
 #include <sens.h>
 
-const char *WIFI_SSID = "Your WiFi SSID";
-const char *WIFI_PASSWORD = "Your WiFi Password";
-const char *MQTT_ID = "Your MQTT ID";
-const char *MQTT_USER = "Your MQTT User";
-const char *MQTT_PASSWORD = "Your MQTT Password";
-const char *MQTT_HOST = "Your MQTT HOST";
+const char *WIFI_SSID = "WiFi Momu";
+const char *WIFI_PASSWORD = "fiffla123";
+const char *MQTT_ID = "test2";
+const char *MQTT_USER = "user";
+const char *MQTT_PASSWORD = "admin";
+const char *MQTT_HOST = "52.221.187.140";
 
 const uint16_t tInterval = 1000;
 
