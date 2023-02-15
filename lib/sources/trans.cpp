@@ -5,7 +5,7 @@
 WiFiClient net;
 MQTTClient client;
 
-void Trans::init(const char *WIFISSID, const char *WIFIPassword, const char *MQTTHOST, const char *MQTTID, const char *MQTTUser, const char *MQTTPassword)
+void Trans::init(const char *WIFISSID, const char *WIFIPassword, const char *MQTTHOST, const char *MQTTID, const char *MQTTUser, const char *MQTTPassword, uint16_t MQTTPort)
 {
     this->WIFISSID = WIFISSID;
     this->WIFIPassword = WIFIPassword;
@@ -13,8 +13,9 @@ void Trans::init(const char *WIFISSID, const char *WIFIPassword, const char *MQT
     this->MQTTID = MQTTID;
     this->MQTTUser = MQTTUser;
     this->MQTTPassword = MQTTPassword;
+    this->MQTTPort = MQTTPort;
     WiFi.begin(WIFISSID, WIFIPassword);
-    client.begin(MQTTHOST, net);
+    client.begin(MQTTHOST, MQTTPort, net);
 }
 
 bool Trans::connect()
@@ -57,5 +58,5 @@ bool Trans::publishSensor(float internalTemperature, float powerSource, float te
                   ",\"power_source\":" + String(powerSource) +
                   ",\"temperature\":" + String(temperature) +
                   ",\"humidity\":" + String(humidity) + "}";
-    return this->publish("/2-mqtt",data);
+    return this->publish("/2-mqtt", data);
 }
